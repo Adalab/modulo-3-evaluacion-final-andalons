@@ -8,16 +8,3 @@ import App from '../components/App';
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 }); */
-
-test('renders "Hola mundo"', () => {
-  // Arrange
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-  // Act
-  const divElement = screen.getByText(/Hola mundo/i);
-  // Assert
-  expect(divElement).toBeInTheDocument();
-});
