@@ -3,22 +3,26 @@ import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router-dom';
 
 import callToApi from '../services/callToApi';
+import ls from '../services/localStorage';
 import Header from './Header';
 import Form from './Form';
 import SceneList from './SceneList';
 import SceneDetail from './SceneDetail';
 
 function App() {
-  //datos iniciales de la API:
+  //datos iniciales de la API guardados en LocalStorage:
   useEffect(() => {
-    callToApi().then((data) => {
-      console.log(data);
-      setScenesData(data);
-    });
+    if (scenesData.length === 0) {
+      callToApi().then((data) => {
+        console.log(data);
+        ls.set('scenes', data);
+        setScenesData(data);
+      });
+    }
   }, []);
 
   //variables de estado:
-  const [scenesData, setScenesData] = useState([]);
+  const [scenesData, setScenesData] = useState(ls.get('scenes', []));
   const [movieFilterData, setMovieFilterData] = useState('');
   const [yearFilterData, setYearFilterData] = useState('All');
 
