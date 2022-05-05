@@ -76,6 +76,7 @@ function App() {
   const dataPath = matchPath('/scene/:id', pathname);
   const sceneId = dataPath !== null ? dataPath.params.id : null;
   const sceneFound = scenesData.find((item) => item.id === sceneId);
+  const sceneNotFound = {};
 
   return (
     <>
@@ -98,9 +99,9 @@ function App() {
           />
           <Route
             path="/scene/:id"
-            element={<SceneDetail scene={sceneFound} />}
+            element={<SceneDetail scene={sceneFound || sceneNotFound} />}
           />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </>
