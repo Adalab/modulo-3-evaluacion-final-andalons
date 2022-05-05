@@ -9,6 +9,7 @@ const FilterByMovie = (props) => {
         type="text"
         name="movieFilter"
         id="movieFilter"
+        value={props.movieFilterData}
         onChange={handleFilter}
         onKeyPress={(e) => {
           e.key === 'Enter' && e.preventDefault();

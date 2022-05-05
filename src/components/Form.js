@@ -5,7 +5,10 @@ const Form = (props) => {
   return (
     <section className="form-section">
       <form className="form">
-        <FilterByMovie handleMovieFilter={props.handleMovieFilter} />
+        <FilterByMovie
+          handleMovieFilter={props.handleMovieFilter}
+          movieFilterData={props.movieFilterData}
+        />
         <FilterByYear
           handleYearFilter={props.handleYearFilter}
           years={props.years}

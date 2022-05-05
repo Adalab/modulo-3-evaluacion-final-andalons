@@ -74,6 +74,7 @@ function App() {
               <>
                 <Form
                   handleMovieFilter={handleMovieFilter}
+                  movieFilterData={movieFilterData}
                   handleYearFilter={handleYearFilter}
                   years={getScenesYear()}
                 />
