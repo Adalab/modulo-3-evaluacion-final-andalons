@@ -8,6 +8,7 @@ import Header from './Header';
 import Form from './Form';
 import SceneList from './SceneList';
 import SceneDetail from './SceneDetail';
+import NotFound from './NotFound';
 
 function App() {
   //datos iniciales de la API guardados en LocalStorage:
@@ -25,6 +26,7 @@ function App() {
   const [scenesData, setScenesData] = useState(ls.get('scenes', []));
   const [movieFilterData, setMovieFilterData] = useState('');
   const [yearFilterData, setYearFilterData] = useState('All');
+  console.log(scenesData);
 
   // datos de sceneData filtrados:
   const filteredScenesData = scenesData
@@ -47,7 +49,6 @@ function App() {
     });
     return uniqueYears;
   };
-  console.log(getScenesYear());
 
   //funciones manejadoras:
   const handleMovieFilter = (value) => {
@@ -58,14 +59,11 @@ function App() {
     setYearFilterData(value);
   };
 
-  //gestión de ruta
+  //gestión de ruta y búsqueda de escena correspondiente
   const { pathname } = useLocation();
   const dataPath = matchPath('/scene/:id', pathname);
-  console.log(dataPath);
-
   const sceneId = dataPath !== null ? dataPath.params.id : null;
   const sceneFound = scenesData.find((item) => item.id === sceneId);
-  console.log(sceneFound);
 
   return (
     <>
@@ -90,6 +88,7 @@ function App() {
             path="/scene/:id"
             element={<SceneDetail scene={sceneFound} />}
           />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </main>
     </>
