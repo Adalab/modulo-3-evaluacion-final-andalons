@@ -6,7 +6,7 @@ const SceneList = (props) => {
     if (props.data.length === 0) {
       html = (
         <p>
-          Ups! We couldn't find a movie that matches your search! Please, try
+          Oops! We couldn't find a movie that matches your search! Please, try
           again.
         </p>
       );
