@@ -10,6 +10,8 @@ import SceneList from './SceneList';
 import SceneDetail from './SceneDetail';
 import NotFound from './NotFound';
 
+import '../styles/App.scss';
+
 function App() {
   //datos iniciales de la API guardados en LocalStorage:
   useEffect(() => {

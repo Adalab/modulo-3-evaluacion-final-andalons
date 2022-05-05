@@ -1,11 +1,16 @@
+import '../styles/layout/Filters.scss';
+
 const FilterByMovie = (props) => {
   const handleFilter = (ev) => {
     props.handleMovieFilter(ev.target.value);
   };
   return (
-    <>
-      <label htmlFor="movieFilter">Movie:</label>
+    <fieldset className="fieldset">
+      <label className="label" htmlFor="movieFilter">
+        Movie:
+      </label>
       <input
+        className="movieInput"
         type="text"
         name="movieFilter"
         id="movieFilter"
@@ -15,7 +20,7 @@ const FilterByMovie = (props) => {
           e.key === 'Enter' && e.preventDefault();
         }}
       />
-    </>
+    </fieldset>
   );
 };
 export default FilterByMovie;

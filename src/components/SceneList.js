@@ -1,4 +1,5 @@
 import SceneItem from './SceneItem';
+import '../styles/layout/SceneList.scss';
 
 const SceneList = (props) => {
   const renderHTML = () => {
