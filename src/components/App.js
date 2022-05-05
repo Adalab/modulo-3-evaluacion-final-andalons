@@ -47,8 +47,11 @@ function App() {
     const uniqueYears = years.filter((item, index) => {
       return years.indexOf(item) === index;
     });
-    return uniqueYears;
+    return uniqueYears.sort(function (a, b) {
+      return a - b;
+    });
   };
+  console.log(getScenesYear());
 
   //funciones manejadoras:
   const handleMovieFilter = (value) => {
