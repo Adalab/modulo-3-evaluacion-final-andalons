@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 const SceneItem = (props) => {
   return (
-    <>
+    <Link to={`/scene/${props.item.id}`}>
       <img
         className=""
         src={props.item.poster}
@@ -9,7 +11,7 @@ const SceneItem = (props) => {
       />
       <h3>{`${props.item.movie}, ${props.item.year}`}</h3>
       <p>{props.item.quote}</p>
-    </>
+    </Link>
   );
 };
 

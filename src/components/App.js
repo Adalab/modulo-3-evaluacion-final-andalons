@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { matchPath, useLocation } from 'react-router-dom';
 
 import callToApi from '../services/callToApi';
 import Header from './Header';
 import Form from './Form';
 import SceneList from './SceneList';
+import SceneDetail from './SceneDetail';
 
 function App() {
   //datos iniciales de la API:
@@ -51,16 +54,38 @@ function App() {
     setYearFilterData(value);
   };
 
+  //gestión de ruta
+  const { pathname } = useLocation();
+  const dataPath = matchPath('/scene/:id', pathname);
+  console.log(dataPath);
+
+  const sceneId = dataPath !== null ? dataPath.params.id : null;
+  const sceneFound = scenesData.find((item) => item.id === sceneId);
+  console.log(sceneFound);
+
   return (
     <>
       <Header />
       <main className="main">
-        <Form
-          handleMovieFilter={handleMovieFilter}
-          handleYearFilter={handleYearFilter}
-          years={getScenesYear()}
-        />
-        <SceneList data={filteredScenesData} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Form
+                  handleMovieFilter={handleMovieFilter}
+                  handleYearFilter={handleYearFilter}
+                  years={getScenesYear()}
+                />
+                <SceneList data={filteredScenesData} />
+              </>
+            }
+          />
+          <Route
+            path="/scene/:id"
+            element={<SceneDetail scene={sceneFound} />}
+          />
+        </Routes>
       </main>
     </>
   );
