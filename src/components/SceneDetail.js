@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 const SceneDetail = (props) => {
   return (
     <section className="detail-section">
+      {' '}
       <img
         className=""
         src={props.scene.poster}
@@ -12,7 +14,8 @@ const SceneDetail = (props) => {
       <p>{props.scene.director}</p>
       <a href={props.scene.audio} target="_blank">
         Listen audio
-      </a>
+      </a>{' '}
+      <Link to="/">Go back to all scenes</Link>
     </section>
   );
 };
