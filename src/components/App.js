@@ -30,6 +30,15 @@ function App() {
 
   // datos de sceneData filtrados:
   const filteredScenesData = scenesData
+    .sort((a, b) => {
+      if (a.movie < b.movie) {
+        return -1;
+      }
+      if (a.movie > b.movie) {
+        return 1;
+      }
+      return 0;
+    })
     .filter((scene) => {
       return movieFilterData === ''
         ? true
@@ -47,7 +56,7 @@ function App() {
     const uniqueYears = years.filter((item, index) => {
       return years.indexOf(item) === index;
     });
-    return uniqueYears.sort(function (a, b) {
+    return uniqueYears.sort((a, b) => {
       return a - b;
     });
   };
