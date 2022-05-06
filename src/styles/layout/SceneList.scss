@@ -2,8 +2,11 @@
   list-style: none;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-auto-columns: auto;
+  /*  grid-template-columns: repeat(6, 1fr); */
+  justify-content: center;
   &__element {
+    /* grid-column: 1/7; */
     background-color: #febd11;
     border-radius: 5px;
     padding: 5px;
