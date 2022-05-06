@@ -22,8 +22,9 @@ function App() {
   useEffect(() => {
     if (scenesData.length === 0) {
       callToApi().then((data) => {
+        console.log(data);
+        ls.set('scenes', data);
         setScenesData(data);
-        ls.set('scenes', scenesData);
       });
     }
   }, []);
