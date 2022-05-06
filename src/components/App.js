@@ -15,26 +15,18 @@ import '../styles/App.scss';
 function App() {
   //variables de estado:
   const [scenesData, setScenesData] = useState(ls.get('scenes', []));
-  const [movieFilterData, setMovieFilterData] = useState(
-    ls.get('filteredMovies', '')
-  );
+  const [movieFilterData, setMovieFilterData] = useState('');
   const [yearFilterData, setYearFilterData] = useState('All');
-  console.log(scenesData);
 
-  //Llamada a la API
+  //Llamada a la API y datos guardados en localStorage
   useEffect(() => {
     if (scenesData.length === 0) {
       callToApi().then((data) => {
         setScenesData(data);
+        ls.set('scenes', scenesData);
       });
     }
   }, []);
-
-  //LocalStorage
-  useEffect(() => {
-    ls.set('scenes', scenesData);
-    ls.set('filteredMovies', movieFilterData);
-  }, [scenesData, movieFilterData]);
 
   // datos de sceneData filtrados:
   const filteredScenesData = scenesData
@@ -64,14 +56,10 @@ function App() {
     const uniqueYears = years.filter((item, index) => {
       return years.indexOf(item) === index;
     });
-    /*     const allYears = 'All';
-    const uniqueYearsAll = [...uniqueYears, allYears]; */
-    console.log(uniqueYears);
     return uniqueYears.sort((a, b) => {
       return a - b;
     });
   };
-  console.log(getScenesYear());
 
   //funciones manejadoras:
   const handleMovieFilter = (value) => {
@@ -81,6 +69,7 @@ function App() {
   const handleYearFilter = (value) => {
     setYearFilterData(value);
   };
+  console.log(yearFilterData);
 
   //gestión de ruta y búsqueda de escena correspondiente
   const { pathname } = useLocation();
@@ -103,6 +92,7 @@ function App() {
                   movieFilterData={movieFilterData}
                   handleYearFilter={handleYearFilter}
                   years={getScenesYear()}
+                  yearFilterData={yearFilterData}
                 />
                 <SceneList data={filteredScenesData} />
               </>
