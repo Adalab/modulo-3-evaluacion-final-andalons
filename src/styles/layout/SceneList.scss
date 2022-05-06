@@ -1,16 +1,21 @@
+.list-section {
+  margin: auto;
+  max-width: 1200px;
+}
+
 .list {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   list-style: none;
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   justify-content: center;
   &__element {
-    /* grid-column: 1/7; */
     background-color: #febd11;
     border-radius: 5px;
     padding: 5px;
-    width: 200px;
+    width: 260px;
+    margin: 0 auto;
   }
 }

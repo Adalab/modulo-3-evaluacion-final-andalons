@@ -1,0 +1,71 @@
+.detail-section {
+  background-color: #febd11;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  max-width: 1200px;
+  margin: auto;
+  &__poster {
+    width: 90%;
+    margin: 1rem;
+    border-radius: 5px;
+    @media all and (min-width: 768px) {
+      width: 50%;
+    }
+  }
+  &__description {
+    background-color: white;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 90%;
+    margin: 1rem;
+    border-radius: 5px;
+    @media all and (min-width: 768px) {
+      width: 50%;
+    }
+  }
+  &__title {
+    font-size: 2.5rem;
+    letter-spacing: -0.15rem;
+    color: #febd11;
+    margin-bottom: 1rem;
+  }
+  &__quote {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.25rem;
+    font-size: 1.5rem;
+
+    margin-bottom: 1rem;
+  }
+  &__director {
+  }
+  &__audio {
+    display: inline-block;
+    background-color: rgb(255, 248, 216);
+    padding: 1rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #febd11;
+    border: 2px solid #febd11;
+    font-weight: 600;
+    border-radius: 5px;
+  }
+}
+
+.go-back-link {
+  display: block;
+  text-align: center;
+  text-decoration: underline;
+  color: inherit;
+  padding: 2rem 0 1rem;
+  font-weight: 600;
+}

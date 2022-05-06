@@ -11,6 +11,7 @@ import SceneDetail from './SceneDetail';
 import NotFound from './NotFound';
 
 import '../styles/App.scss';
+import '../styles/core/Reset.scss';
 
 function App() {
   //variables de estado:

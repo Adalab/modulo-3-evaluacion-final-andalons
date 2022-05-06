@@ -5,19 +5,22 @@ input {
 }
 
 .form-section {
-  margin: auto;
+  background-color: #febd11;
+  width: 100%;
+  margin: 0 auto 3rem auto;
   text-align: center;
   &__title {
+    padding-top: 1rem;
     margin: 0;
-    padding-top: 50px;
+    letter-spacing: -0.1rem;
   }
 }
 
 .form {
-  border-radius: 5px;
+  max-width: 500px;
   margin: auto;
-  max-width: 450px;
-  height: 50px;
+  padding: 1rem 0;
+  /* height: 50px; */
   display: flex;
   justify-content: space-around;
   align-items: center;

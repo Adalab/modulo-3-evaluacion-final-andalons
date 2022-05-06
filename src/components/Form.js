@@ -6,7 +6,7 @@ const Form = (props) => {
   return (
     <section className="form-section">
       <h3 className="form-section__title">
-        Search for your fa(WOW)rite scene...{' '}
+        Search for your fa(wow)rite scene...{' '}
       </h3>
       <form className="form">
         <FilterByMovie

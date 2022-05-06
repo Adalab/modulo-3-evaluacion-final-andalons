@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import '../styles/layout/SceneDetail.scss';
 
 const SceneDetail = (props) => {
   let html = '';
@@ -13,19 +14,31 @@ const SceneDetail = (props) => {
   } else {
     html = (
       <section className="detail-section">
-        <img
-          className=""
-          src={props.scene.poster}
-          alt={props.scene.movie}
-          width="400px"
-        />
-        <h3>{props.scene.movie}</h3>
-        <p>{props.scene.quote}</p>
-        <p>{props.scene.director}</p>
-        <a href={props.scene.audio} target="_blank">
-          Listen audio
-        </a>{' '}
-        <Link to="/">Go back to all scenes</Link>
+        <Link className="go-back-link" to="/">
+          Back to all scenes
+        </Link>
+        <article className="article">
+          <img
+            className="article__poster"
+            src={props.scene.poster}
+            alt={props.scene.movie}
+            width="400px"
+          />
+          <div className="article__description">
+            <h3 className="article__title">{props.scene.movie}</h3>
+            <p className="article__quote">"{props.scene.quote}"</p>
+            <p className="article__director">
+              <strong>Director:</strong> {props.scene.director}
+            </p>
+            <a
+              className="article__audio"
+              href={props.scene.audio}
+              target="_blank"
+            >
+              Original audio
+            </a>
+          </div>
+        </article>
       </section>
     );
   }

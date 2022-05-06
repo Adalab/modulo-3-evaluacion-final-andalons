@@ -1,8 +1,28 @@
 .header {
+  background-color: rgb(255, 248, 216);
+  font-family: 'Bangers', cursive;
+  letter-spacing: 0.25rem;
   text-align: center;
   margin: 0 auto;
-  border-bottom: #febd11 solid 2px;
+  border-bottom: #febd11 solid 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media all and (min-width: 768px) {
+    flex-direction: column;
+  }
   &__title {
     color: #febd11;
+    @media all and (min-width: 768px) {
+      padding-bottom: 2rem;
+    }
+  }
+  &__logo {
+    width: 6rem;
+    margin: 1rem;
+    @media all and (min-width: 768px) {
+      width: 8rem;
+      margin: 0;
+    }
   }
 }
