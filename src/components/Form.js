@@ -16,6 +16,7 @@ const Form = (props) => {
         <FilterByYear
           handleYearFilter={props.handleYearFilter}
           years={props.years}
+          yearFilterData={props.yearFilterData}
         />
       </form>
     </section>

@@ -23,6 +23,7 @@ const FilterByYear = (props) => {
         name="yearFilter"
         id="yearFilter"
         onChange={handleFilter}
+        value={props.yearFilterData}
       >
         <option value="All">All</option>
         {renderSelectOptions()}
