@@ -1,9 +1,10 @@
 .list {
+  padding: 0;
+  margin: 0;
   list-style: none;
   display: grid;
   grid-gap: 10px;
-  grid-auto-columns: auto;
-  /*  grid-template-columns: repeat(6, 1fr); */
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   justify-content: center;
   &__element {
     /* grid-column: 1/7; */
