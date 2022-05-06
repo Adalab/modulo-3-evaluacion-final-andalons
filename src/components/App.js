@@ -13,22 +13,28 @@ import NotFound from './NotFound';
 import '../styles/App.scss';
 
 function App() {
-  //datos iniciales de la API guardados en LocalStorage:
+  //variables de estado:
+  const [scenesData, setScenesData] = useState(ls.get('scenes', []));
+  const [movieFilterData, setMovieFilterData] = useState(
+    ls.get('filteredMovies', '')
+  );
+  const [yearFilterData, setYearFilterData] = useState('All');
+  console.log(scenesData);
+
+  //Llamada a la API
   useEffect(() => {
     if (scenesData.length === 0) {
       callToApi().then((data) => {
-        console.log(data);
-        ls.set('scenes', data);
         setScenesData(data);
       });
     }
   }, []);
 
-  //variables de estado:
-  const [scenesData, setScenesData] = useState(ls.get('scenes', []));
-  const [movieFilterData, setMovieFilterData] = useState('');
-  const [yearFilterData, setYearFilterData] = useState('All');
-  console.log(scenesData);
+  //LocalStorage
+  useEffect(() => {
+    ls.set('scenes', scenesData);
+    ls.set('filteredMovies', movieFilterData);
+  }, [scenesData, movieFilterData]);
 
   // datos de sceneData filtrados:
   const filteredScenesData = scenesData
@@ -58,6 +64,9 @@ function App() {
     const uniqueYears = years.filter((item, index) => {
       return years.indexOf(item) === index;
     });
+    /*     const allYears = 'All';
+    const uniqueYearsAll = [...uniqueYears, allYears]; */
+    console.log(uniqueYears);
     return uniqueYears.sort((a, b) => {
       return a - b;
     });
